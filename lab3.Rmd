@@ -1,0 +1,30 @@
+---
+title: "Lab 3: Data Viz & Data Wrangling pt. 1"
+author: "Your group member names here (include last names!)"
+date: "September 11" 
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+## Motivation: What's going on in this graph? 
+
+- Click on the link to the New York Times graph below. 
+
+https://www.nytimes.com/2019/02/07/learning/whats-going-on-in-this-graph-feb-13-2019.html  
+
+- Answer the following questions. The questions are intended to build on one 
+another, so try to answer them in order!   
+
+__1. What do you notice?__  
+
+__2. What do you wonder?__  
+
+__3. What are you curious about that comes from what you notice in the graph?__  
+
+__4. What might be going on in this graph?__  
+
+__5. Write a catchy headline that captures the graph’s main idea. If your headline makes a claim, tell us what you noticed that supports your claim.__ 
+
