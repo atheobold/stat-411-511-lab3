@@ -24,9 +24,7 @@ __2. What do you wonder?__
 
 __3. What are you curious about that comes from what you notice in the graph?__  
 
-__4. What might be going on in this graph?__  
-
-__5. Write a catchy headline that captures the graph’s main idea. If your headline makes a claim, tell us what you noticed that supports your claim.__ 
+__4. Write a catchy headline that captures the graph’s main idea. If your headline makes a claim, tell us what you noticed that supports your claim.__ 
 
 
 ## Data for Today's Lab  
@@ -53,7 +51,7 @@ the lack of data for the Soviet Union.
 
 SIPRI military expenditure data is based on open sources only.
 
-__1. Load the data into your work space and inspect it to answer the following questions:__   
+__1. Use the code below to load the data into your work space and inspect it to answer the following questions:__   
 
 * __How many observations (rows) do the data have?__  
 <!-- Your answer here!  -->
@@ -65,12 +63,14 @@ __1. Load the data into your work space and inspect it to answer the following q
 
 
 
-* __What class (data types) are the variables in the dataset?__  
+* __Last week the variables that contained numbers were coded as doubles/numeric. 
+Why do you believe all of the variables are coded as characters?__ 
 <!-- Your answer here!  -->
 
 
 
-```{r data, message = FALSE, warning = FALSE}
+
+```{r, message = FALSE}
 # The dataset is an excel file, so we need to use the read_xlsx function 
 # which lives in the readxl package
 
@@ -86,6 +86,47 @@ glimpse(military)
 
 </br>
 </br>
+
+__2. What are the four ways that missing or unavailable values were coded in this dataset?__ 
+<!-- Your answer here!  -->
+
+
+</br>
+</br>
+
+Let's recode all of these missing values into NA responses.  
+
+```{r, warning = FALSE}
+military_clean <- military %>% 
+                    select(-Country, -Notes) %>% 
+                    # removes the Country and Notes variables from the dataset 
+                    mutate_if(is.character, as.numeric) %>% 
+                    # changes the variables that are characters to numeric  
+                    mutate(Country = military$Country) %>% 
+                    # adds the Country variable back in  
+                    select(Country, everything())
+                    # reorders the variables so Country is first 
+```
+
+</br>
+</br>
+</br>
+
+
+Below is a list of countries in the dataset:
+
+```{r, echo = FALSE}
+library(DT)
+
+military_clean %>% 
+  select(Country, `1988`:`1990`) %>%
+  distinct() %>%
+  datatable()
+```
+
+
+
+
 
 
 
