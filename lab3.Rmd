@@ -28,3 +28,64 @@ __4. What might be going on in this graph?__
 
 __5. Write a catchy headline that captures the graph’s main idea. If your headline makes a claim, tell us what you noticed that supports your claim.__ 
 
+
+## Data for Today's Lab  
+
+The SIPRI (Stockholm International Peace Research Institute) Military Expenditure
+Database is an open source dataset with contains consistent time series on the 
+military spending of countries for the period 1949–2018. The database is updated
+annually, which may include updates to data for any of the years included in the
+database.
+
+Military expenditure in local currency at current prices is presented according
+to both the financial year of each country and according to calendar year, 
+calculated on the assumption that, where financial years do not correspond to 
+calendar years, spending is distributed evenly through the year. 
+Figures in constant (2017) and current US $, as a share of GDP and per capita 
+are presented according to calendar year. 
+
+The availability of data varies considerably by country, but for a majority of 
+countries that were independent at the time, data is available from at least the
+late 1950s. Estimates for regional military expenditure have been extended 
+backwards depending on availability of data for countries in the region, but no 
+estimates for total world military expenditure are available before 1988 due to 
+the lack of data for the Soviet Union.
+
+SIPRI military expenditure data is based on open sources only.
+
+__1. Load the data into your work space and inspect it to answer the following questions:__   
+
+* __How many observations (rows) do the data have?__  
+<!-- Your answer here!  -->
+
+
+
+* __How many variables (columns) do the data have?__ 
+<!-- Your answer here!  -->
+
+
+
+* __What class (data types) are the variables in the dataset?__  
+<!-- Your answer here!  -->
+
+
+
+```{r data, message = FALSE, warning = FALSE}
+# The dataset is an excel file, so we need to use the read_xlsx function 
+# which lives in the readxl package
+
+library(readxl) # loading in readxl package
+library(tidyverse) # loading in tidyverse package 
+# contains dpylr, tidyr, and ggplot
+
+military <- read_xlsx("data/gov_spending_per_capita.xlsx")
+
+glimpse(military)
+
+```
+
+</br>
+</br>
+
+
+
